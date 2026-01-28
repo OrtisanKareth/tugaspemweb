@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LuminaStore | Gadget & Lifestyle</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .page { display: none; }
+        .page.active { display: block; }
+    </style>
+</head>
+<body class="bg-gray-50 font-sans text-gray-900">
+
+    <nav class="bg-white shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="flex items-center space-x-2 cursor-pointer" onclick="showPage('home')">
+                <div class="bg-blue-600 p-2 rounded-lg">
+                    <i class="fas fa-shopping-bag text-white text-xl"></i>
+                </div>
+                <span class="text-2xl font-bold tracking-tight text-blue-600">Lumina<span class="text-gray-800">Store</span></span>
+            </div>
+            <div class="hidden md:flex space-x-8 font-medium">
+                <a href="#" onclick="showPage('home')" class="hover:text-blue-600 transition">Beranda</a>
+                <a href="#" onclick="showPage('products')" class="hover:text-blue-600 transition">Produk</a>
+                <a href="#contact" class="hover:text-blue-600 transition">Kontak</a>
+            </div>
+            <div class="flex items-center space-x-4">
+                <i class="fas fa-search cursor-pointer text-gray-500 hover:text-blue-600"></i>
+                <i class="fas fa-shopping-cart cursor-pointer text-gray-500 hover:text-blue-600"></i>
+            </div>
+        </div>
+    </nav>
+
+    <main class="min-h-screen">
+        
+        <section id="home" class="page active">
+            <div class="relative bg-blue-900 h-[500px] flex items-center">
+                <div class="absolute inset-0 opacity-40 bg-[url('https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=1500&q=80')] bg-cover bg-center"></div>
+                <div class="container mx-auto px-6 relative z-10 text-white">
+                    <h1 class="text-5xl md:text-6xl font-extrabold mb-4">Inovasi dalam <br>Genggaman Anda.</h1>
+                    <p class="text-xl mb-8 max-w-lg text-gray-200">Temukan koleksi gadget eksklusif dengan teknologi terkini dan desain premium hanya di LuminaStore.</p>
+                    <button onclick="showPage('products')" class="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-full font-bold transition transform hover:scale-105">
+                        Belanja Sekarang
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <section id="products" class="page container mx-auto px-6 py-12">
+            <h2 class="text-3xl font-bold mb-8 text-center">Koleksi Unggulan</h2>
+            <div id="product-grid" class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-8">
+                </div>
+        </section>
+
+        <section id="product-detail" class="page container mx-auto px-6 py-12">
+            <button onclick="showPage('products')" class="mb-6 flex items-center text-blue-600 font-medium">
+                <i class="fas fa-arrow-left mr-2"></i> Kembali ke Produk
+            </button>
+            <div id="detail-content" class="bg-white rounded-2xl shadow-xl overflow-hidden p-8">
+                </div>
+        </section>
+
+    </main>
+
+    <footer id="contact" class="bg-gray-900 text-gray-300 pt-12 pb-6">
+        <div class="container mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-12">
+            <div>
+                <h3 class="text-white text-xl font-bold mb-4">LuminaStore</h3>
+                <p class="mb-4">Penyedia perangkat teknologi terpercaya sejak 2024. Kualitas adalah prioritas kami.</p>
+                <div class="flex space-x-4">
+                    <i class="fab fa-instagram text-2xl hover:text-blue-500 cursor-pointer"></i>
+                    <i class="fab fa-facebook text-2xl hover:text-blue-500 cursor-pointer"></i>
+                </div>
+            </div>
+            <div>
+                <h3 class="text-white text-xl font-bold mb-4">Lokasi Kami</h3>
+                <div class="rounded-lg overflow-hidden h-48 border border-gray-700">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.255162464016!2d106.8247640758364!3d-6.230059360875618!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f3e09804e823%3A0x9d4996417f73950b!2sMega%20Kuningan!5e0!3m2!1sid!2sid!4v1700000000000!5m2!1sid!2sid" 
+                        width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                </div>
+            </div>
+            <div>
+                <h3 class="text-white text-xl font-bold mb-4">Newsletter</h3>
+                <p class="text-sm mb-4">Dapatkan info promo terbaru langsung di email Anda.</p>
+                <div class="flex">
+                    <input type="email" placeholder="Email Anda" class="w-full p-2 rounded-l-md text-gray-900">
+                    <button class="bg-blue-600 px-4 py-2 rounded-r-md hover:bg-blue-700">Kirim</button>
+                </div>
+            </div>
+        </div>
+        <hr class="border-gray-800 my-8">
+        <p class="text-center text-sm">&copy; 2026 LuminaStore. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        // Data Produk Dummy
+        const products = [
+            { id: 1, name: "Smartwatch Pro X", price: "Rp 2.499.000", img: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=500&q=80", desc: "Jam tangan pintar dengan sensor kesehatan tercanggih dan baterai tahan 14 hari." },
+            { id: 2, name: "Audio-Bass Headphone", price: "Rp 1.850.000", img: "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=500&q=80", desc: "Kualitas audio studio dengan fitur noise cancelling yang memukau." },
+            { id: 3, name: "Ultra-Slim Laptop", price: "Rp 12.999.000", img: "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?auto=format&fit=crop&w=500&q=80", desc: "Laptop tipis berperforma tinggi untuk produktivitas tanpa batas." },
+            { id: 4, name: "Mirrorless Camera Z", price: "Rp 8.200.000", img: "https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&fit=crop&w=500&q=80", desc: "Tangkap momen berharga dengan resolusi tinggi dan fokus super cepat." }
+        ];
+
+        // Navigasi Halaman Sederhana
+        function showPage(pageId) {
+            document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+            document.getElementById(pageId).classList.add('active');
+            window.scrollTo(0,0);
+        }
+
+        // Render Daftar Produk
+        const grid = document.getElementById('product-grid');
+        products.forEach(p => {
+            grid.innerHTML += `
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden group hover:shadow-2xl transition">
+                    <div class="relative overflow-hidden">
+                        <img src="${p.img}" class="w-full h-56 object-cover group-hover:scale-110 transition duration-500">
+                    </div>
+                    <div class="p-5">
+                        <h3 class="text-lg font-bold mb-2">${p.name}</h3>
+                        <p class="text-blue-600 font-semibold mb-4">${p.price}</p>
+                        <button onclick="viewDetail(${p.id})" class="w-full border-2 border-blue-600 text-blue-600 py-2 rounded-lg font-bold hover:bg-blue-600 hover:text-white transition">Lihat Detail</button>
+                    </div>
+                </div>
+            `;
+        });
+
+        // Tampilkan Detail Produk
+        function viewDetail(id) {
+            const product = products.find(p => p.id === id);
+            const detailContent = document.getElementById('detail-content');
+            detailContent.innerHTML = `
+                <div class="flex flex-col md:flex-row gap-10">
+                    <img src="${product.img}" class="w-full md:w-1/2 rounded-xl object-cover h-96">
+                    <div class="flex-1">
+                        <span class="text-blue-600 font-bold uppercase tracking-widest text-sm">Best Seller</span>
+                        <h2 class="text-4xl font-bold mt-2 mb-4">${product.name}</h2>
+                        <p class="text-2xl text-gray-700 font-medium mb-6">${product.price}</p>
+                        <p class="text-gray-600 mb-8 leading-relaxed">${product.desc}</p>
+                        <div class="flex space-x-4">
+                            <button class="flex-1 bg-blue-600 text-white py-4 rounded-xl font-bold hover:bg-blue-700 transition shadow-lg">Tambah ke Keranjang</button>
+                            <button class="bg-gray-100 p-4 rounded-xl hover:bg-gray-200"><i class="far fa-heart text-xl"></i></button>
+                        </div>
+                    </div>
+                </div>
+            `;
+            showPage('product-detail');
+        }
+    </script>
+</body>
+</html>
